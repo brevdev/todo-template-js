@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
+import logo from "./gadoe.png";
 import "./App.css";
 import { GetTodos, TodoType } from "./agent";
 import { ModifyTodo } from "./agent";
@@ -33,10 +33,17 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <div className={"App-header"}>
+        
+        <img src={logo} className="App-logo" alt="logo" />
+
+        {/* <h1>Georgia Dept of Education</h1> */}
+      </div>
+      <header className="App-body">
+        
         <div className={"todo-container"}>
 
-          
+
           {todoList.map((t) => {
             return !t.isComplete ? (
               <Checkbox
@@ -64,7 +71,7 @@ function App() {
 
 
         <div className={"footer"}>
-          <BuiltWithBrev />
+          <p>brev.dev 🤙 </p>
         </div>
 
       </header>
