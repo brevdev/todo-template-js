@@ -24,43 +24,37 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 app.get("/", function (req, res) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
-    let day = date.getDate();
-    res.json(items);
-
+    // Set this to items 👇
+    res.json([]);
 });
 
 
 app.options('/', cors()) // enable pre-flight request for DELETE request
 app.post("/", cors(), function (req, res) {
-    // res.header("Access-Control-Allow-Origin", "http://localhost:3000");
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "POST");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-
-    console.log(req.body)
 
     let item = {
         id: items.length + 1,
         title: req.body.title,
         isComplete: false,
     }
-    items.push(item);
 
+    // Uncomment the below 👇
+    // items.push(item);
     res.json(items)
 
 });
 
 app.put("/", cors(), function (req, res) {
 
-    console.log(req.query)
-    console.log(parseInt(req.query.id))
-    console.log(items[parseInt(req.query.id) - 1])
-
     try {
-        items[parseInt(req.query.id) - 1].isComplete = true
+        // Make sure to set the below to true
+        items[parseInt(req.query.id) - 1].isComplete = false
     } catch (error) {
         console.log(error)
     }

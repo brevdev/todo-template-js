@@ -14,21 +14,16 @@ set -euo pipefail
 ##### of this file happens at this level.                                      #####
 ####################################################################################
 
-# ##### Yarn #####
-# curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add
-# echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-# sudo apt update
-# sudo apt install -y yarn
+##### Yarn #####
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update
+sudo apt install -y yarn
 
-# ##### Node v14.x + npm #####
-# curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-# sudo apt-get install -y nodejs
+##### Node v14.x + npm #####
+curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
-# ##### Custom commands #####
-# cd nodejs-todoList && npm install 
-
-sudo apt-get install postgresql-12 -y
-
-# THIS PART NEEDS TO BE DONE MANUALLY 
-
-#     pg_ctlcluster 12 main start
+##### Custom commands #####
+cd backend && npm install && cd ..
+cd frontend && npm install && cd ..

@@ -1,5 +1,4 @@
-// export const BREV_URL = "https://hyfc3f7n.brev.dev/api/Todo"
-export const BREV_URL = "http://localhost:8080"
+const BREV_URL = "https://8080-todo-template-js-q3aa-georgia-education.wgt-us-west-2-test.brev.dev"
 
 export interface TodoType {
     id: string;
